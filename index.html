@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Purchase</title>
+</head>
+<body>
+  <input type="text" onkeydown="onChangeInput(event)" autofocus>
+  <div class="name"></div>
+  <button onclick="onSubmit(event)">submit</button>
+  <script>
+    let name;
+    const onChangeInput = (e) => {
+      const newName = name = e.target.value;
+      const n = document.querySelector(".name");
+      n.innerHTML = newName;
+      window.history.pushState(null, null, `?product_name=${newName}`);
+    }
+
+    function onSubmit(e) {
+      window.history.pushState(null, null, `thankyou.html?product_name=${name}`);
+      location.reload();
+    }
+  </script>
+</body>
+</html>
